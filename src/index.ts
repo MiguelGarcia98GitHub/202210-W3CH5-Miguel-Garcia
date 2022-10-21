@@ -1,7 +1,5 @@
-import { getAllPokemons } from './services/fetchAllPokemons.js';
-import { getSinglePokemon } from './services/fetchSinglePokemon.js';
+import { fetchPokemonsPage } from './services/fetchPokemonsPage.js';
 
 console.log('Loaded index.js');
 
-getAllPokemons();
-getSinglePokemon('pikachu');
+fetchPokemonsPage(0);
