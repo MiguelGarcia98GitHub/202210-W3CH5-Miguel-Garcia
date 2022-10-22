@@ -13,7 +13,7 @@ export class ListOfTwentyPokemons extends Base {
     constructor(selector, pageID) {
         super(selector);
         this.selector = selector;
-        const template = (this.pageID = pageID);
+        this.pageID = pageID;
         this.data = [];
         this.fetchPokemonsPage(this.pageID);
     }
@@ -49,7 +49,7 @@ export class ListOfTwentyPokemons extends Base {
     createTemplate1(data) {
         console.log(data);
         data.forEach((item) => {
-            new SinglePokemonCard('.pokemon__list', item, item.id);
+            new SinglePokemonCard('.pokemon__list', item);
         });
         return '';
     }

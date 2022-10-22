@@ -1,6 +1,10 @@
 body {
     box-sizing: border-box;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 img {
@@ -32,4 +36,21 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.pokemon__card__details {
+    cursor: pointer;
+    padding: 1.25rem;
+    border: 2px solid black;
+    width: 50%;
+    margin-top: 5rem;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon__card__img {
+    max-width: 18rem;
 }
