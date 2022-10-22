@@ -1,6 +1,6 @@
 import { Component } from './Component.js';
 
-export class Footer extends Component {
+export class Header extends Component {
     template: string;
     constructor(public selector: string) {
         super();
@@ -10,7 +10,9 @@ export class Footer extends Component {
     createTemplate() {
         return `
          <header>
-            <h1>HEADER</h1>
+                <div class="logo__container">
+                <img src="./pokemon-logo.svg" width="300" height="100" alt="PokeAPI Logo">
+                </div>
         </header>
         `;
     }

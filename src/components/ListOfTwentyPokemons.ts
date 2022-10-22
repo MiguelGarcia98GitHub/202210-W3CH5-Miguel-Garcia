@@ -53,7 +53,7 @@ export class ListOfTwentyPokemons extends Base {
         console.log(data);
 
         data.forEach((item: any) => {
-            new SinglePokemonCard('.pokemon__list', item);
+            new SinglePokemonCard('.pokemon__list', item, item.id);
         });
 
         return '';
