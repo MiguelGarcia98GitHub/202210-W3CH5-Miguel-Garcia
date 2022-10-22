@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export const getSinglePokemon = (pokeapi_id) => __awaiter(void 0, void 0, void 0, function* () {
+export const fetchSinglePokemon = (pokeapi_id) => __awaiter(void 0, void 0, void 0, function* () {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokeapi_id}`)
         .then((response) => {
         return response.json();
