@@ -1,15 +1,15 @@
-import { Component } from './component.js';
+import { Component } from './Component.js';
 export class Base extends Component {
     constructor(selector) {
         super();
         this.selector = selector;
-        this.manageComponent();
+        // this.manageComponent();
     }
     manageComponent() {
         this.template = this.createTemplate();
-        this.render(this.selector);
+        this.render(this.selector, this.template);
     }
     createTemplate() {
-        return `base`;
+        return this.template;
     }
 }

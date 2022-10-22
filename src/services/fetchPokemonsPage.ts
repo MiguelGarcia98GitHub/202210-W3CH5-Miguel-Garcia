@@ -17,9 +17,6 @@ export const fetchPokemonsPage = async (pageIndex: number) => {
         pageLimit = pageOffset + 20;
     }
 
-    console.log(`pageLimit: ${pageLimit}`);
-    console.log(`pageOffset: ${pageOffset}`);
-
     const arrayOfPromises = [];
 
     if (pageOffset === 0) {

@@ -1,9 +1,10 @@
-import { Component } from './Component.js';
+import { fetchSinglePokemon } from '../services/fetchSinglePokemon.js';
+import { Base } from './Base.js';
 
-export class SinglePokemonCard extends Component {
+export class SinglePokemonCard extends Base {
     template: string;
     constructor(public selector: string) {
-        super();
+        super(selector);
         this.template = this.createTemplate();
         this.renderAdd(this.selector, this.template);
     }

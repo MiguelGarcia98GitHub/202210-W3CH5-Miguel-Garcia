@@ -1,7 +1,7 @@
-import { Component } from './Component.js';
-export class SinglePokemonCard extends Component {
+import { Base } from './Base.js';
+export class SinglePokemonCard extends Base {
     constructor(selector) {
-        super();
+        super(selector);
         this.selector = selector;
         this.template = this.createTemplate();
         this.renderAdd(this.selector, this.template);
