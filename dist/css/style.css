@@ -1,0 +1,14 @@
+div {
+}
+
+.pokemon__list {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    background-color: red;
+}
+
+.pokemon__card {
+    padding: 1.25rem;
+    border: 2px solid black;
+    background-color: bisque;
+}

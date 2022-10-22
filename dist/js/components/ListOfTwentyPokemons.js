@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Base } from './Base.js';
+import { SinglePokemonCard } from './SinglePokemonCard.js';
 export class ListOfTwentyPokemons extends Base {
     constructor(selector, pageID) {
         super(selector);
@@ -47,12 +48,9 @@ export class ListOfTwentyPokemons extends Base {
     }
     createTemplate1(data) {
         console.log(data);
-        let newTemplate = '<div>';
         data.forEach((item) => {
-            newTemplate += `<h3>${item.name}</h3>`;
+            new SinglePokemonCard('.pokemon__list', item);
         });
-        newTemplate += '</div>';
-        console.log(newTemplate);
-        return newTemplate;
+        return '';
     }
 }

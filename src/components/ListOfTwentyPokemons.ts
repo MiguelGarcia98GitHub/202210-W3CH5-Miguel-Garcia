@@ -1,4 +1,5 @@
 import { Base } from './Base.js';
+import { SinglePokemonCard } from './SinglePokemonCard.js';
 
 export class ListOfTwentyPokemons extends Base {
     template: any;
@@ -51,15 +52,10 @@ export class ListOfTwentyPokemons extends Base {
     createTemplate1(data: any) {
         console.log(data);
 
-        let newTemplate = '<div>';
-
         data.forEach((item: any) => {
-            newTemplate += `<h3>${item.name}</h3>`;
+            new SinglePokemonCard('.pokemon__list', item);
         });
 
-        newTemplate += '</div>';
-
-        console.log(newTemplate);
-        return newTemplate;
+        return '';
     }
 }

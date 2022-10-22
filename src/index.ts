@@ -5,5 +5,5 @@ import { SinglePokemonCard } from './components/SinglePokemonCard.js';
 console.log('Loaded index.js');
 
 // fetchPokemonsPage(0);
-new SinglePokemonCard('body');
-new ListOfTwentyPokemons('body', 1);
+
+new ListOfTwentyPokemons('body', 0);
