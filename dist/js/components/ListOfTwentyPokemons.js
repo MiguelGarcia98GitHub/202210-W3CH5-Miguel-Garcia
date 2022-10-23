@@ -16,6 +16,8 @@ export class ListOfTwentyPokemons extends Base {
         this.pageID = pageID;
         this.data = [];
         this.fetchPokemonsPage(this.pageID);
+        this.template = this.createTemplate();
+        this.renderAdd(this.selector, this.template);
     }
     fetchPokemonsPage(pageIndex) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -47,7 +49,6 @@ export class ListOfTwentyPokemons extends Base {
         });
     }
     createTemplate1(data) {
-        console.log(data);
         data.forEach((item) => {
             new SinglePokemonCard('.pokemon__list', item);
         });

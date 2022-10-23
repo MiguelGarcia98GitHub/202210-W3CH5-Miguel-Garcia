@@ -35,6 +35,4 @@ export const fetchPokemonsPage = async (pageIndex: number) => {
             return Promise.all(values.map((r) => r.json()));
         }
     );
-
-    console.log(arrayOfResolvedPromises);
 };

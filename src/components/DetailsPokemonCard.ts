@@ -9,7 +9,7 @@ export class DetailsPokemonCard extends Base {
     }
 
     async fetchSinglePokemon() {
-        console.log(
+        
             'http://127.0.0.1:5500/dist/details.html?24'.replace(
                 'http://127.0.0.1:5500/dist/details.html?',
                 ''
@@ -30,7 +30,7 @@ export class DetailsPokemonCard extends Base {
     }
 
     createTemplate1(data: any) {
-        console.log(data);
+        
 
         const newTemplate = `
          <div class="pokemon__card__details" id="details${data.id}">
@@ -44,7 +44,7 @@ export class DetailsPokemonCard extends Base {
         </div>
         `;
 
-        console.log(data.id);
+        
 
         return newTemplate;
     }

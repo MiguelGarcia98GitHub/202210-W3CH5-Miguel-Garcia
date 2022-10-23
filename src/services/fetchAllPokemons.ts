@@ -3,7 +3,5 @@ export const fetchAllPokemons = async () => {
         .then((response) => {
             return response.json();
         })
-        .then((data: any) => {
-            console.log(data);
-        });
+        .then((data: any) => {});
 };

@@ -4,7 +4,5 @@ export const fetchSinglePokemon = async (pokeapi_id: number | string) => {
             return response.json();
         })
 
-        .then((data: any) => {
-            console.log(data);
-        });
+        .then((data: any) => {});
 };

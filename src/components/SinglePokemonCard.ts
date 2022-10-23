@@ -10,8 +10,6 @@ export class SinglePokemonCard extends Base {
     }
 
     createTemplate() {
-        console.log(this.singlePokemonData);
-
         const newTemplate = `
          <div class="pokemon__card" id=${this.singlePokemonData.id}>
             <div><span>${this.singlePokemonData.name} - ${this.singlePokemonData.id}</span></div>

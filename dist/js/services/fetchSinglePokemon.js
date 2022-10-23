@@ -12,7 +12,5 @@ export const fetchSinglePokemon = (pokeapi_id) => __awaiter(void 0, void 0, void
         .then((response) => {
         return response.json();
     })
-        .then((data) => {
-        console.log(data);
-    });
+        .then((data) => { });
 });

@@ -16,6 +16,20 @@ header {
     width: 100%;
 }
 
+a {
+    display: block;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-decoration: none;
+    color: dodgerblue;
+    background-color: blanchedalmond;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
 .logo__container {
     background-color: burlywood;
     padding: 1rem;

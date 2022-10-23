@@ -10,6 +10,8 @@ export class ListOfTwentyPokemons extends Base {
         this.pageID = pageID;
         this.data = [];
         this.fetchPokemonsPage(this.pageID);
+        this.template = this.createTemplate();
+        this.renderAdd(this.selector, this.template);
     }
 
     async fetchPokemonsPage(pageIndex: number) {
@@ -50,8 +52,6 @@ export class ListOfTwentyPokemons extends Base {
     }
 
     createTemplate1(data: any) {
-        console.log(data);
-
         data.forEach((item: any) => {
             new SinglePokemonCard('.pokemon__list', item);
         });

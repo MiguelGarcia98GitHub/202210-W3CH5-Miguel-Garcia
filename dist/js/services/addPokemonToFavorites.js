@@ -13,7 +13,6 @@ export const addPokemonToFavorites = (pokeapi_id) => __awaiter(void 0, void 0, v
         return response.json();
     })
         .then((data) => {
-        console.log(data);
         fetch('http://localhost:3000', {
             method: 'POST',
             body: JSON.stringify(data),

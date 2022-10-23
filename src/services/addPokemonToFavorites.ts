@@ -5,7 +5,6 @@ export const addPokemonToFavorites = async (pokeapi_id: number | string) => {
         })
 
         .then((data: any) => {
-            console.log(data);
             fetch('http://localhost:3000', {
                 method: 'POST',
                 body: JSON.stringify(data),

@@ -33,5 +33,4 @@ export const fetchPokemonsPage = (pageIndex) => __awaiter(void 0, void 0, void 0
     const arrayOfResolvedPromises = yield Promise.all(arrayOfPromises).then((values) => {
         return Promise.all(values.map((r) => r.json()));
     });
-    console.log(arrayOfResolvedPromises);
 });
