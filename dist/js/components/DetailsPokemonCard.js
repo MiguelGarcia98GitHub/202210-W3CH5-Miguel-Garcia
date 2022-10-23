@@ -17,6 +17,7 @@ export class DetailsPokemonCard extends Base {
     }
     fetchSinglePokemon() {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('http://127.0.0.1:5500/dist/details.html?24'.replace('http://127.0.0.1:5500/dist/details.html?', ''));
             const currentPokemonID = window.location.search.replace('?', '');
             yield fetch(`https://pokeapi.co/api/v2/pokemon/${currentPokemonID}`)
                 .then((response) => {
@@ -38,11 +39,10 @@ export class DetailsPokemonCard extends Base {
             <div><span>${data.stats[1].stat.name}: ${data.stats[1].base_stat}</span></div>
             <div><span>${data.stats[2].stat.name}: ${data.stats[2].base_stat}</span></div>
             <div><span>${data.stats[3].stat.name}: ${data.stats[3].base_stat}</span></div>
-            <div><span></span></div>
-            <div><span></span></div>
-           
+            <button id="button${data.id}">Add Pokemon To Favorites</button>
         </div>
         `;
+        console.log(data.id);
         return newTemplate;
     }
 }
