@@ -18,7 +18,6 @@ export class DetailsPokemonCard extends Base {
     fetchSinglePokemon() {
         return __awaiter(this, void 0, void 0, function* () {
             'http://127.0.0.1:5500/dist/details.html?24'.replace('http://127.0.0.1:5500/dist/details.html?', '');
-            ;
             const currentPokemonID = window.location.search.replace('?', '');
             yield fetch(`https://pokeapi.co/api/v2/pokemon/${currentPokemonID}`)
                 .then((response) => {

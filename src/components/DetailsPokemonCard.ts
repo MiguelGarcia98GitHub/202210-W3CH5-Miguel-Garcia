@@ -9,12 +9,11 @@ export class DetailsPokemonCard extends Base {
     }
 
     async fetchSinglePokemon() {
-        
-            'http://127.0.0.1:5500/dist/details.html?24'.replace(
-                'http://127.0.0.1:5500/dist/details.html?',
-                ''
-            )
+        'http://127.0.0.1:5500/dist/details.html?24'.replace(
+            'http://127.0.0.1:5500/dist/details.html?',
+            ''
         );
+
         const currentPokemonID = window.location.search.replace('?', '');
 
         await fetch(`https://pokeapi.co/api/v2/pokemon/${currentPokemonID}`)
@@ -30,8 +29,6 @@ export class DetailsPokemonCard extends Base {
     }
 
     createTemplate1(data: any) {
-        
-
         const newTemplate = `
          <div class="pokemon__card__details" id="details${data.id}">
          <h1>${data.name}</h1>
@@ -43,8 +40,6 @@ export class DetailsPokemonCard extends Base {
             <button id="button${data.id}">Add Pokemon To Favorites</button>
         </div>
         `;
-
-        
 
         return newTemplate;
     }
