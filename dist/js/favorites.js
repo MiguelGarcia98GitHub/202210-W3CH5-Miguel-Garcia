@@ -7,10 +7,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export const fetchSinglePokemon = (pokeapi_id) => __awaiter(void 0, void 0, void 0, function* () {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeapi_id}`)
-        .then((response) => {
-        return response.json();
-    })
-        .then((data) => { });
+import { Header } from './components/Header.js';
+import { ListOfFavouritePokemons } from './components/ListOfFavouritePokemons.js';
+// fetchPokemonsPage(0);
+new Header('header');
+new ListOfFavouritePokemons('body');
+const main = () => __awaiter(void 0, void 0, void 0, function* () {
+    setTimeout(() => {
+        const listOfHTMLCards = document.querySelectorAll('.pokemon__card');
+        listOfHTMLCards.forEach((item) => item.addEventListener('click', () => {
+            fetch(`http://localhost:3000/pokemons/${item.id}`, {
+                method: 'DELETE',
+            });
+        }));
+    }, 150);
 });
+main();

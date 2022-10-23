@@ -9,15 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { Base } from './Base.js';
 import { SinglePokemonCard } from './SinglePokemonCard.js';
-export class ListOfTwentyPokemons extends Base {
-    constructor(selector, pageID) {
+export class ListOfFavouritePokemons extends Base {
+    constructor(selector) {
         super(selector);
         this.selector = selector;
-        this.pageID = pageID;
+        this.pageID = 1;
         this.data = [];
         this.fetchPokemonsPage(this.pageID);
-        this.template = this.createTemplate();
-        this.renderAdd(this.selector, this.template);
     }
     fetchPokemonsPage(pageIndex) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -39,9 +37,7 @@ export class ListOfTwentyPokemons extends Base {
                 pageOffset = 1;
                 pageLimit++;
             }
-            for (let i = pageOffset; i < pageLimit; i++) {
-                yield this.data.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i === 0 ? 1 : i}`));
-            }
+            yield this.data.push(fetch(`http://localhost:3000/pokemons`));
             this.data = yield Promise.all(this.data).then((values) => {
                 return Promise.all(values.map((r) => r.json()));
             });
@@ -49,7 +45,7 @@ export class ListOfTwentyPokemons extends Base {
         });
     }
     createTemplate1(data) {
-        data.forEach((item) => {
+        data[0].forEach((item) => {
             new SinglePokemonCard('.pokemon__list', item);
         });
         return '';

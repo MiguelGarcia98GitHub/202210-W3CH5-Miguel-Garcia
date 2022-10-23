@@ -12,7 +12,5 @@ export const fetchAllPokemons = () => __awaiter(void 0, void 0, void 0, function
         .then((response) => {
         return response.json();
     })
-        .then((data) => {
-        console.log(data);
-    });
+        .then((data) => { });
 });

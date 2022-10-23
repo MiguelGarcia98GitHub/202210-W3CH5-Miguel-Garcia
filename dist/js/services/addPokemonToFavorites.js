@@ -8,12 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 export const addPokemonToFavorites = (pokeapi_id) => __awaiter(void 0, void 0, void 0, function* () {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeapi_id ? pokeapi_id : 5}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeapi_id}`)
         .then((response) => {
         return response.json();
     })
         .then((data) => {
-        console.log(data);
         fetch('http://localhost:3000', {
             method: 'POST',
             body: JSON.stringify(data),

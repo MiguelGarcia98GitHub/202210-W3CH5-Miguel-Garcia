@@ -1,51 +1,29 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import { DetailsPokemonCard } from './components/DetailsPokemonCard.js';
 import { Header } from './components/Header.js';
 new Header('header');
 const currentPokemonID = window.location.search.replace('?', '');
-console.log(currentPokemonID);
-let data;
+//
+let pokemonData;
 new DetailsPokemonCard('body', currentPokemonID);
-const main = () => {
-    // const data = await fetchSinglePokemon(2)
-    //     .then((response) => {
-    //         return response.json();
-    //     })
-    //     .then((data) => console.log(data));
-    // addPokemonToFavorites = async (pokeapi_id: number | string) => {
-    //     fetch(
-    //         `https://pokeapi.co/api/v2/pokemon/${pokeapi_id ? pokeapi_id : 5}`
-    //     )
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-    //         .then((data: any) => {
-    //             console.log(data);
-    //             fetch('http://localhost:3000', {
-    //                 method: 'POST',
-    //                 body: JSON.stringify(data),
-    //                 headers: { 'content-type': 'application/json' },
-    //             });
-    //         });
-    // };
-    setTimeout(() => {
-        const HTMLDetailsPokemonCard = document.getElementById(`button${currentPokemonID}`);
-        HTMLDetailsPokemonCard === null || HTMLDetailsPokemonCard === void 0 ? void 0 : HTMLDetailsPokemonCard.addEventListener('click', () => {
-            console.log('Clickaste el boton para añadir a favoritos...');
-            fetch('http://localhost:3000/pokemons', {
-                method: 'POST',
-                // body: JSON.stringify({ data }),
-                body: JSON.stringify({ data }),
-                headers: { 'content-type': 'application/json' },
-            });
-            console.log('Enviando datos...');
-            fetch('http://localhost:3000/pokemons')
-                .then((response) => {
-                return response.json();
-            })
-                .then((data) => {
-                console.log(data);
-            });
+const main = () => __awaiter(void 0, void 0, void 0, function* () {
+    const getPokemonData = yield fetch(`https://pokeapi.co/api/v2/pokemon/${currentPokemonID}`);
+    const pokemonData = yield getPokemonData.json();
+    const addToFavoritesHTMLButton = document.getElementById(`button${currentPokemonID}`);
+    addToFavoritesHTMLButton === null || addToFavoritesHTMLButton === void 0 ? void 0 : addToFavoritesHTMLButton.addEventListener('click', () => {
+        fetch('http://localhost:3000/pokemons', {
+            method: 'POST',
+            body: JSON.stringify(pokemonData),
+            headers: { 'content-type': 'application/json' },
         });
-    }, 100);
-};
+    });
+});
 main();

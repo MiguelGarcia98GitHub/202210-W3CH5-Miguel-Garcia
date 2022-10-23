@@ -10,7 +10,12 @@ export class Header extends Component {
         return `
          <header>
                 <div class="logo__container">
+
                 <img src="./pokemon-logo.svg" width="300" height="100" alt="PokeAPI Logo">
+                </div>
+                <div>
+                <a href="./index.html">HOME</a>
+                <a href="./favorites.html">FAVOURITES</a>
                 </div>
         </header>
         `;

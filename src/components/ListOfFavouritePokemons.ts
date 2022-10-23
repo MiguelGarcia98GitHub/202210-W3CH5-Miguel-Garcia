@@ -1,17 +1,15 @@
 import { Base } from './Base.js';
 import { SinglePokemonCard } from './SinglePokemonCard.js';
 
-export class ListOfTwentyPokemons extends Base {
+export class ListOfFavouritePokemons extends Base {
     template: any;
     pageID: number;
     data: any;
-    constructor(public selector: string, pageID: number) {
+    constructor(public selector: string) {
         super(selector);
-        this.pageID = pageID;
+        this.pageID = 1;
         this.data = [];
         this.fetchPokemonsPage(this.pageID);
-        this.template = this.createTemplate();
-        this.renderAdd(this.selector, this.template);
     }
 
     async fetchPokemonsPage(pageIndex: number) {
@@ -38,11 +36,7 @@ export class ListOfTwentyPokemons extends Base {
             pageLimit++;
         }
 
-        for (let i = pageOffset; i < pageLimit; i++) {
-            await this.data.push(
-                fetch(`https://pokeapi.co/api/v2/pokemon/${i === 0 ? 1 : i}`)
-            );
-        }
+        await this.data.push(fetch(`http://localhost:3000/pokemons`));
 
         this.data = await Promise.all(this.data).then((values) => {
             return Promise.all(values.map((r) => r.json()));
@@ -52,7 +46,7 @@ export class ListOfTwentyPokemons extends Base {
     }
 
     createTemplate1(data: any) {
-        data.forEach((item: any) => {
+        data[0].forEach((item: any) => {
             new SinglePokemonCard('.pokemon__list', item);
         });
 
