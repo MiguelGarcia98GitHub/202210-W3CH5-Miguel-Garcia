@@ -32,7 +32,7 @@ export class DetailsPokemonCard extends Base {
     createTemplate1(data) {
         console.log(data);
         const newTemplate = `
-         <div class="pokemon__card__details" id="">
+         <div class="pokemon__card__details" id="details${data.id}">
          <h1>${data.name}</h1>
           <div class="pokemon__card__img"><img src="${data.sprites.other.home.front_default}" alt="${data.name}"></div>
             <div><span>${data.stats[0].stat.name}: ${data.stats[0].base_stat}</span></div>

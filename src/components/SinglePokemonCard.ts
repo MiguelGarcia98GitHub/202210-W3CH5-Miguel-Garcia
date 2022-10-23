@@ -17,10 +17,6 @@ export class SinglePokemonCard extends Base {
             <div><span>${this.singlePokemonData.name} - ${this.singlePokemonData.id}</span></div>
             <div><img src="${this.singlePokemonData.sprites.other.home.front_default} " alt="${this.singlePokemonData.name}"></div>
         </div>
-        <script>
-        
-        
-        </script>
         `;
 
         return newTemplate;

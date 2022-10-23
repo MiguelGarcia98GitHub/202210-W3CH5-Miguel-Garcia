@@ -24,7 +24,7 @@ header {
 .pokemon__list {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    background-color: red;
+    margin: 2rem;
 }
 
 .pokemon__card {

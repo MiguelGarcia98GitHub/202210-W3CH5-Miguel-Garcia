@@ -1,64 +1,32 @@
-import { get } from 'https';
 import { DetailsPokemonCard } from './components/DetailsPokemonCard.js';
 import { Header } from './components/Header.js';
-import { fetchSinglePokemon } from './services/fetchSinglePokemon.js';
+
+console.log('Loaded details.js');
 
 new Header('header');
 
 const currentPokemonID = window.location.search.replace('?', '');
-console.log(currentPokemonID);
-let data: any;
+// console.log(currentPokemonID);
+let pokemonData: any;
 
 new DetailsPokemonCard('body', currentPokemonID);
 
-const main = () => {
-    // const data = await fetchSinglePokemon(2)
-    //     .then((response) => {
-    //         return response.json();
-    //     })
-    //     .then((data) => console.log(data));
-
-    // addPokemonToFavorites = async (pokeapi_id: number | string) => {
-    //     fetch(
-    //         `https://pokeapi.co/api/v2/pokemon/${pokeapi_id ? pokeapi_id : 5}`
-    //     )
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-
-    //         .then((data: any) => {
-    //             console.log(data);
-    //             fetch('http://localhost:3000', {
-    //                 method: 'POST',
-    //                 body: JSON.stringify(data),
-    //                 headers: { 'content-type': 'application/json' },
-    //             });
-    //         });
-    // };
-
-    setTimeout(() => {
-        const HTMLDetailsPokemonCard = document.getElementById(
-            `button${currentPokemonID}`
-        );
-
-        HTMLDetailsPokemonCard?.addEventListener('click', () => {
-            console.log('Clickaste el boton para añadir a favoritos...');
-            fetch('http://localhost:3000/pokemons', {
-                method: 'POST',
-                // body: JSON.stringify({ data }),
-                body: JSON.stringify({ data }),
-                headers: { 'content-type': 'application/json' },
-            });
-            console.log('Enviando datos...');
-            fetch('http://localhost:3000/pokemons')
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log(data);
-                });
+const main = async () => {
+    const getPokemonData = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${currentPokemonID}`
+    );
+    const pokemonData = await getPokemonData.json();
+    console.log(pokemonData);
+    const addToFavoritesHTMLButton = document.getElementById(
+        `button${currentPokemonID}`
+    );
+    addToFavoritesHTMLButton?.addEventListener('click', () => {
+        fetch('http://localhost:3000/pokemons', {
+            method: 'POST',
+            body: JSON.stringify(pokemonData),
+            headers: { 'content-type': 'application/json' },
         });
-    }, 100);
+    });
 };
 
 main();

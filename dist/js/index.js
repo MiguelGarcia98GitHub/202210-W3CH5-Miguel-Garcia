@@ -3,7 +3,7 @@ import { ListOfTwentyPokemons } from './components/ListOfTwentyPokemons.js';
 console.log('Loaded index.js');
 // fetchPokemonsPage(0);
 new Header('header');
-new ListOfTwentyPokemons('body', 1);
+new ListOfTwentyPokemons('body', 4);
 const main = () => {
     setTimeout(() => {
         const listOfHTMLPokemonCards = document.querySelectorAll('.pokemon__card');
