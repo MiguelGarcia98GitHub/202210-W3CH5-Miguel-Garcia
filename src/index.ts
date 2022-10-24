@@ -16,9 +16,7 @@ const main = async () => {
 
         listOfHTMLPokemonCards.forEach((item) => {
             item.addEventListener('click', () => {
-                window.open(
-                    `http://127.0.0.1:5500/dist/details.html?${item.id}`
-                );
+                window.open(`./details.html?${item.id}`);
             });
         });
 
