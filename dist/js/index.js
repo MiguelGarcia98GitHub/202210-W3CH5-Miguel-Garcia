@@ -20,7 +20,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         const listOfHTMLPokemonCards = document.querySelectorAll('.pokemon__card');
         listOfHTMLPokemonCards.forEach((item) => {
             item.addEventListener('click', () => {
-                window.open(`http://127.0.0.1:5500/dist/details.html?${item.id}`);
+                window.open(`./details.html?${item.id}`);
             });
         });
         const buttonNextPage = document.querySelector('button');

@@ -9,10 +9,7 @@ export class DetailsPokemonCard extends Base {
     }
 
     async fetchSinglePokemon() {
-        'http://127.0.0.1:5500/dist/details.html?24'.replace(
-            'http://127.0.0.1:5500/dist/details.html?',
-            ''
-        );
+        './details.html?24'.replace('./details.html?', '');
 
         const currentPokemonID = window.location.search.replace('?', '');
 
